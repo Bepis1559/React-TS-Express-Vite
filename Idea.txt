@@ -1,0 +1,7 @@
+3 React routes => 3 products with customizable ingredients
+
+1. Pizza 
+
+2. Pancakes (given types,) https://www.momables.com/25-pancake-add-ins/
+
+3. Hamburgers
