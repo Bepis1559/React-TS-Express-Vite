@@ -12,6 +12,7 @@
     color: transparent;
     background-image: $buttonBg;
     background-clip: text;
+    -webkit-background-clip: text;
 
     i.rocket {
       color: initial;
