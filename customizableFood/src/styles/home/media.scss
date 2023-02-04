@@ -1,0 +1,30 @@
+@media (width < 700px) {
+  #homeContainer {
+    nav {
+      gap: 4em;
+      flex-direction: column;
+
+      & > *:nth-of-type(2) {
+        margin-inline: 0 !important;
+      }
+    }
+  }
+}
+@media (width < 1100px) {
+  #homeContainer {
+    max-width: 99vw;
+    section {
+      margin-block: 4em 8em;
+      display: block;
+      img {
+        margin-block: 3em;
+      }
+    }
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  section {
+    color: white;
+  }
+}

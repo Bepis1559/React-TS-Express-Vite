@@ -1,4 +1,6 @@
 import { ReactElement, useRef,useEffect } from "react";
+
+
 export const ImageContainer = ({src}: any): ReactElement => {
   const img: React.MutableRefObject<null> = useRef(null);
   const observer: any = useRef(null);
@@ -19,8 +21,8 @@ export const ImageContainer = ({src}: any): ReactElement => {
   }, []);
 
   return (
-    <div className={`imageContainer`}>
-      <img ref={img} src={`${src}`} alt={`${src}`} />
+    <div className="imageContainer">
+      <img ref={img} src={src} alt={src} />
     </div>
   );
 };

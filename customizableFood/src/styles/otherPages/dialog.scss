@@ -1,0 +1,76 @@
+#dialog {
+  // position: absolute;
+  padding: 2em;
+  border-color: #333;
+  background-color: rgb(34, 34, 34);
+  border-radius: 10px;
+  box-shadow: 1px 1px 15px 5px rgba(99, 98, 98, 0.829);
+  max-width: 45ch;
+
+  p {
+    text-align: center;
+    color: transparent;
+    background-image: $buttonBg;
+    background-clip: text;
+
+    i.rocket {
+      color: initial;
+    }
+  }
+
+  $modalFadeIn: fade-in 0.5s forwards;
+  $modalFadeOut: fade-out 0.5s forwards;
+  $modalSlideUp: slide-up 1s forwards;
+  &::backdrop {
+    background: #333;
+    opacity: 0.3;
+  }
+  :modal {
+    background-color: rgb(73, 121, 138);
+  }
+
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  @keyframes fade-out {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  @keyframes slide-up {
+    0% {
+      transform: translateY(100%);
+    }
+    100% {
+      transform: translateY(0%);
+    }
+  }
+
+  &[open] {
+    translate: -50% -50%;
+    top: 50%;
+    left: 50%;
+    animation: $modalFadeIn, $modalSlideUp;
+
+    &::backdrop {
+      animation: $modalFadeIn;
+    }
+  }
+  &[closing] {
+    pointer-events: none;
+    display: block;
+    // inset: 0;
+    animation: $modalFadeOut;
+    &::backdrop {
+      animation: $modalFadeOut;
+    }
+  }
+}

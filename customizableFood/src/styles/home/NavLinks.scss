@@ -1,0 +1,87 @@
+$PizzaColor: rgb(255, 30, 30);
+$HamburgerColor: rgb(26, 179, 26);
+$PancakeColor: hsl(317 100% 54%);
+
+.nav-link {
+  color: #252525;
+  display: inline-block;
+  position: relative;
+  text-decoration: none;
+  border-radius: 0.25em;
+  text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em currentColor;
+
+  &::before {
+    pointer-events: none;
+    content: "";
+    position: absolute;
+    top: 120%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: perspective(1em) rotateX(40deg) scale(1, 0.35);
+    filter: blur(1em);
+    opacity: 0.7;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+
+    z-index: -1;
+    transition: opacity 100ms linear;
+  }
+
+  &:is(:hover, :focus) {
+    text-shadow: none;
+    color: white;
+  }
+
+  &::before,
+  &:focus::before {
+    opacity: 1;
+  }
+  &:hover:after,
+  &:focus::after {
+    opacity: 1;
+  }
+}
+
+#Pizza-link {
+  border: $PizzaColor 0.125em solid;
+  box-shadow: inset 0 0 0.5em 0 $PizzaColor, 0 0 0.5em 0 $PizzaColor;
+
+  &::before {
+    background: $PizzaColor;
+  }
+  &::after {
+    box-shadow: 0 0 2em 0.5em $PizzaColor;
+    background-color: $PizzaColor;
+  }
+}
+#Hamburger-link {
+  border: $HamburgerColor 0.125em solid;
+  box-shadow: inset 0 0 0.5em 0 $HamburgerColor, 0 0 0.5em 0 $HamburgerColor;
+
+  &::before {
+    background: $HamburgerColor;
+  }
+  &::after {
+    box-shadow: 0 0 2em 0.5em $HamburgerColor;
+    background-color: $HamburgerColor;
+  }
+}
+
+#Pancake-link {
+  border: $PancakeColor 0.125em solid;
+  box-shadow: inset 0 0 0.5em 0 $PancakeColor, 0 0 0.5em 0 $PancakeColor;
+
+  &::before {
+    background: $PancakeColor;
+  }
+  &::after {
+    box-shadow: 0 0 2em 0.5em $PancakeColor;
+    background-color: $PancakeColor;
+  }
+}

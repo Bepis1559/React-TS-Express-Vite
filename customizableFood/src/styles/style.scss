@@ -1,6 +1,38 @@
-@import "./reset.scss";
-@media (prefers-color-scheme: light) {
-  body {
-    background-color: #333;
-  }
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+img,
+picture,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+textarea,
+button,
+select {
+  font: inherit;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+
+body {
+  min-height: 100vh;
+}
+
+html {
+  color-scheme: dark light;
+}
+
+body {
+  background-image: linear-gradient(black, #333, black, #333, black);
 }

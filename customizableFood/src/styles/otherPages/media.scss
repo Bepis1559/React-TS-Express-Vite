@@ -1,0 +1,30 @@
+@media (width < 800px) {
+  .project {
+    display: block;
+  }
+  aside#Aside {
+    display: none;
+  }
+}
+@media (prefers-color-scheme: light) {
+  form#Form {
+    .row {
+      color: rgb(61, 161, 83);
+    }
+    .button {
+      color: whitesmoke;
+    }
+  }
+}
+@media (width < 570px) {
+  .row {
+    flex-wrap: wrap;
+  }
+}
+
+@media (width < 340px) {
+  .inputContainer {
+    display: flex;
+    flex-direction: column;
+  }
+}

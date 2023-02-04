@@ -1,0 +1,57 @@
+$sectionFs: clamp(0.8rem, 1rem + 0.5vw, 1rem + 1vw);
+section {
+  font-size: $sectionFs;
+  display: grid;
+  gap: 2em;
+  grid-template-columns: repeat(2, 1fr);
+  margin-block: 5em 10em;
+
+  & * {
+    width: 100%;
+    height: 100%;
+  }
+  img {
+    aspect-ratio: 16/9;
+    border-radius: 10px;
+  }
+
+  &:first-of-type p::first-letter {
+    color: $PizzaColor;
+  }
+  &:nth-of-type(2) p::first-letter {
+    color: $HamburgerColor;
+  }
+  &:nth-of-type(3) p::first-letter {
+    color: $PancakeColor;
+  }
+  p {
+    text-indent: 0.5em;
+    line-height: 1.5em;
+
+    &::first-letter {
+      font-size: 2rem;
+    }
+  }
+
+  $transition: translate 1.5s ease-in-out, opacity 1.5s ease-in-out;
+  p {
+    translate: -500px;
+    opacity: 0;
+    transition: $transition;
+
+    &.showParagraph {
+      translate: 0;
+      opacity: 1;
+    }
+  }
+  .imageContainer {
+    translate: 500px;
+    opacity: 0;
+
+    &.showImageContainer {
+      translate: 0;
+      opacity: 1;
+      transition: $transition;
+    }
+  }
+}

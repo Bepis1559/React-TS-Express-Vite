@@ -1,0 +1,51 @@
+@import "./NavLinks.scss";
+$navFs: clamp(1rem, 1rem + 1vw, 1rem + 2vw);
+$h1Fs: clamp(1rem, 1rem + 1.5vw, 1rem + 2.5vw);
+$PizzaColor: rgb(255, 30, 30);
+$HamburgerColor: rgb(26, 179, 26);
+$PancakeColor: hsl(317 100% 54%);
+#logoContainer {
+  img {
+    border-radius: 10px;
+    margin-inline: auto;
+    aspect-ratio: 16/9;
+    height: clamp(8em + 7vw, 8em + 10vw, 8em + 13vw);
+  }
+}
+#Header-Home {
+  user-select: none;
+  padding: 2em;
+  text-align: center;
+
+  h1 {
+    font-family: "Audiowide", Papyrus, cursive, fantasy, Tahoma;
+    font-style: italic;
+    font-size: $h1Fs;
+    margin-block: 0.5em 2em;
+    color: transparent;
+    background-image: linear-gradient(
+      90deg,
+      $PizzaColor 20%,
+      $HamburgerColor 50%,
+      $PancakeColor 60%
+    );
+    background-clip: text;
+  }
+
+  nav {
+    font-style: italic;
+    font-weight: 999;
+    font-family: Verdana, Geneva, Tahoma, sans-serif, cursive;
+    display: flex;
+    font-size: $navFs;
+
+    & > * {
+      flex-basis: 100%;
+      padding: 0.4em;
+    }
+
+    & > *:nth-of-type(2) {
+      margin-inline: 2em;
+    }
+  }
+}

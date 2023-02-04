@@ -1,12 +1,16 @@
 import { MutableRefObject, ReactElement,MouseEvent, useRef } from "react";
+import {useNavigate} from 'react-router-dom'
 import { getTheArrWithInputs } from "./Ingredient";
-const URL : string = 'http://localhost:5000/pizza'
 import { ApiRequest } from "./helpers/ApiRequest";
 
-export const SubmitButton = () : ReactElement =>{
+
+
+
+export const SubmitButton = ({URL,submitButtonAriaLabel} : any) : ReactElement =>{
 
     const arrWithInputs : MutableRefObject<null>[] = getTheArrWithInputs()
     const modal : any = useRef(null)
+    const navigate = useNavigate()
 
 
     
@@ -48,11 +52,18 @@ export const SubmitButton = () : ReactElement =>{
     }
 
     const handleCloseButton = () =>{
+      
+       
+
        modal.current.setAttribute('closing','')
        modal.current.addEventListener('animationend',() =>{
          modal.current.removeAttribute('closing')
          modal.current.close()
        },{once : true})
+ 
+       setTimeout(() => {
+       navigate('/')
+       }, 1000);
     }
 
     
@@ -60,10 +71,10 @@ export const SubmitButton = () : ReactElement =>{
     return (
        
        <>
-       <button className="button open-button" onClick={(e) => handleSubmit(e)} aria-label="Submit your pizza" type="submit">
+       <button className="button open-button" onClick={(e) => handleSubmit(e)} aria-label={submitButtonAriaLabel} type="submit">
     🚀 Send my order 🚀 </button>
-        <dialog ref={modal} id="pizzaDialog" >
-         <div> <p> <i className="rocket">🚀</i>  Order sent successfully and the pizza is on the way !  <i className="rocket">🚀</i></p></div>
+        <dialog ref={modal} id="dialog" >
+         <div> <p> <i className="rocket">🚀</i>  Order sent successfully and on the way !  <i className="rocket">🚀</i></p></div>
           <button onClick={handleCloseButton} type="button" aria-label="Close dialog " className="button close-button">Cheers!</button>
         </dialog>
        </>

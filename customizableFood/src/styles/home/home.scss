@@ -1,0 +1,13 @@
+@import "../style.scss";
+@import "https://fonts.googleapis.com/css?family=Audiowide";
+@import "./LogoAndHeader.scss";
+@import "./section.scss";
+@import "./footer.scss";
+@import "./media.scss";
+
+#homeContainer {
+  border-radius: 10px;
+  padding: 2em;
+  margin: 0 auto;
+  max-width: 90vw;
+}

@@ -1,0 +1,92 @@
+$buttonBg: linear-gradient(65deg, green, coral, blue);
+
+form#Form {
+  font-weight: bolder;
+  font-size: clamp(1rem, 0.9vw + 0.5rem, 1.1vw + 0.5rem);
+  font-family: "Courier New", "Garamond", serif;
+  margin-left: 2em;
+  padding: 2em;
+
+  .row {
+    display: flex;
+
+    translate: -300px;
+    opacity: 0;
+    transition: translate 1s ease-in-out, opacity 1s ease-in-out;
+
+    &.show {
+      translate: 0;
+      opacity: 1;
+    }
+    & > * {
+      width: 100%;
+      opacity: 0.8;
+      transition: opacity 0.5s ease-in-out;
+
+      &:is(:hover, :focus-visible, :focus-within) {
+        text-shadow: 0 0 5px rgb(133, 133, 133);
+        // translate: 1px 1px;
+        opacity: 1;
+      }
+    }
+  }
+  .containerForCircle {
+    display: inline-block;
+    position: relative;
+    margin: 1em;
+    height: 2rem;
+    width: 2rem;
+  }
+  input {
+    height: 100%;
+    width: 100%;
+
+    aspect-ratio: 1/1;
+  }
+
+  .circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    height: 200%;
+    width: 200%;
+    border-radius: 50%;
+    background-color: transparent;
+    border: 1px solid white;
+    animation: animateCircle 0.8s ease-in-out 1 forwards;
+
+    @keyframes animateCircle {
+      0% {
+        scale: 0;
+        opacity: 1;
+      }
+
+      100% {
+        scale: 1;
+        visibility: hidden;
+        opacity: 0;
+      }
+    }
+  }
+
+  .button {
+    border-radius: 10px;
+    outline-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 1em;
+    margin-left: 50%;
+    translate: -50%;
+    margin-top: 1em;
+    background-image: $buttonBg;
+
+    &:hover {
+      box-shadow: 0px 0px 5px yellow, 0px -5px 5px red;
+    }
+
+    &.open-button {
+      margin-top: 5em;
+    }
+  }
+}
